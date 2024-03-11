@@ -36,12 +36,8 @@ declare module '$env/static/private' {
 	export const CommonProgramW6432: string;
 	export const COMPUTERNAME: string;
 	export const ComSpec: string;
-	export const CUDA_PATH: string;
-	export const CUDA_PATH_V12_2: string;
-	export const DEVELOPER_DIR: string;
 	export const DriverData: string;
-	export const FPS_BROWSER_APP_PROFILE_STRING: string;
-	export const FPS_BROWSER_USER_PROFILE_STRING: string;
+	export const EFC_8312: string;
 	export const GIT_ASKPASS: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
@@ -49,8 +45,8 @@ declare module '$env/static/private' {
 	export const INIT_CWD: string;
 	export const LANG: string;
 	export const LOCALAPPDATA: string;
-	export const LOCAL_GIT_DIRECTORY: string;
 	export const LOGONSERVER: string;
+	export const NIEXTCCOMPILERSUPP: string;
 	export const NODE: string;
 	export const NODE_ENV: string;
 	export const NODE_PATH: string;
@@ -72,10 +68,8 @@ declare module '$env/static/private' {
 	export const npm_package_dependencies_tailwind_merge: string;
 	export const npm_package_dependencies_tailwind_variants: string;
 	export const npm_package_dependencies_tba_api_v3client_ts: string;
-	export const npm_package_dependencies__sveltejs_adapter_static: string;
 	export const npm_package_devDependencies_autoprefixer: string;
 	export const npm_package_devDependencies_flowbite: string;
-	export const npm_package_devDependencies_gh_pages: string;
 	export const npm_package_devDependencies_postcss: string;
 	export const npm_package_devDependencies_postcss_load_config: string;
 	export const npm_package_devDependencies_svelte: string;
@@ -84,6 +78,7 @@ declare module '$env/static/private' {
 	export const npm_package_devDependencies_tslib: string;
 	export const npm_package_devDependencies_typescript: string;
 	export const npm_package_devDependencies_vite: string;
+	export const npm_package_devDependencies__sveltejs_adapter_static: string;
 	export const npm_package_devDependencies__sveltejs_kit: string;
 	export const npm_package_devDependencies__sveltejs_vite_plugin_svelte: string;
 	export const npm_package_name: string;
@@ -91,20 +86,20 @@ declare module '$env/static/private' {
 	export const npm_package_scripts_build: string;
 	export const npm_package_scripts_check: string;
 	export const npm_package_scripts_check_watch: string;
-	export const npm_package_scripts_deploy: string;
 	export const npm_package_scripts_dev: string;
 	export const npm_package_scripts_preview: string;
 	export const npm_package_type: string;
 	export const npm_package_version: string;
 	export const NUMBER_OF_PROCESSORS: string;
 	export const OneDrive: string;
-	export const OneDriveConsumer: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
+	export const OV_NI_PLUGIN_DIR: string;
 	export const Path: string;
 	export const PATHEXT: string;
 	export const PNPM_HOME: string;
 	export const PNPM_SCRIPT_SRC_DIR: string;
+	export const POWERSHELL_DISTRIBUTION_CHANNEL: string;
 	export const PROCESSOR_ARCHITECTURE: string;
 	export const PROCESSOR_IDENTIFIER: string;
 	export const PROCESSOR_LEVEL: string;
@@ -115,7 +110,7 @@ declare module '$env/static/private' {
 	export const PROMPT: string;
 	export const PSModulePath: string;
 	export const PUBLIC: string;
-	export const SDKROOT: string;
+	export const REFRESH_ENV_VARS: string;
 	export const SESSIONNAME: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
@@ -127,14 +122,14 @@ declare module '$env/static/private' {
 	export const USERDOMAIN_ROAMINGPROFILE: string;
 	export const USERNAME: string;
 	export const USERPROFILE: string;
-	export const VBOX_HWVIRTEX_IGNORE_SVM_IN_USE: string;
-	export const VBOX_MSI_INSTALL_PATH: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const VSCODE_INJECTION: string;
 	export const windir: string;
+	export const ZES_ENABLE_SYSMAN: string;
+	export const __COMPAT_LAYER: string;
 }
 
 /**
@@ -151,7 +146,7 @@ declare module '$env/static/public' {
 }
 
 /**
- * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
+ * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/main/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
  * 
  * This module cannot be imported into client-side code.
  * 
@@ -176,12 +171,8 @@ declare module '$env/dynamic/private' {
 		CommonProgramW6432: string;
 		COMPUTERNAME: string;
 		ComSpec: string;
-		CUDA_PATH: string;
-		CUDA_PATH_V12_2: string;
-		DEVELOPER_DIR: string;
 		DriverData: string;
-		FPS_BROWSER_APP_PROFILE_STRING: string;
-		FPS_BROWSER_USER_PROFILE_STRING: string;
+		EFC_8312: string;
 		GIT_ASKPASS: string;
 		HOME: string;
 		HOMEDRIVE: string;
@@ -189,8 +180,8 @@ declare module '$env/dynamic/private' {
 		INIT_CWD: string;
 		LANG: string;
 		LOCALAPPDATA: string;
-		LOCAL_GIT_DIRECTORY: string;
 		LOGONSERVER: string;
+		NIEXTCCOMPILERSUPP: string;
 		NODE: string;
 		NODE_ENV: string;
 		NODE_PATH: string;
@@ -212,10 +203,8 @@ declare module '$env/dynamic/private' {
 		npm_package_dependencies_tailwind_merge: string;
 		npm_package_dependencies_tailwind_variants: string;
 		npm_package_dependencies_tba_api_v3client_ts: string;
-		npm_package_dependencies__sveltejs_adapter_static: string;
 		npm_package_devDependencies_autoprefixer: string;
 		npm_package_devDependencies_flowbite: string;
-		npm_package_devDependencies_gh_pages: string;
 		npm_package_devDependencies_postcss: string;
 		npm_package_devDependencies_postcss_load_config: string;
 		npm_package_devDependencies_svelte: string;
@@ -224,6 +213,7 @@ declare module '$env/dynamic/private' {
 		npm_package_devDependencies_tslib: string;
 		npm_package_devDependencies_typescript: string;
 		npm_package_devDependencies_vite: string;
+		npm_package_devDependencies__sveltejs_adapter_static: string;
 		npm_package_devDependencies__sveltejs_kit: string;
 		npm_package_devDependencies__sveltejs_vite_plugin_svelte: string;
 		npm_package_name: string;
@@ -231,20 +221,20 @@ declare module '$env/dynamic/private' {
 		npm_package_scripts_build: string;
 		npm_package_scripts_check: string;
 		npm_package_scripts_check_watch: string;
-		npm_package_scripts_deploy: string;
 		npm_package_scripts_dev: string;
 		npm_package_scripts_preview: string;
 		npm_package_type: string;
 		npm_package_version: string;
 		NUMBER_OF_PROCESSORS: string;
 		OneDrive: string;
-		OneDriveConsumer: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
+		OV_NI_PLUGIN_DIR: string;
 		Path: string;
 		PATHEXT: string;
 		PNPM_HOME: string;
 		PNPM_SCRIPT_SRC_DIR: string;
+		POWERSHELL_DISTRIBUTION_CHANNEL: string;
 		PROCESSOR_ARCHITECTURE: string;
 		PROCESSOR_IDENTIFIER: string;
 		PROCESSOR_LEVEL: string;
@@ -255,7 +245,7 @@ declare module '$env/dynamic/private' {
 		PROMPT: string;
 		PSModulePath: string;
 		PUBLIC: string;
-		SDKROOT: string;
+		REFRESH_ENV_VARS: string;
 		SESSIONNAME: string;
 		SystemDrive: string;
 		SystemRoot: string;
@@ -267,14 +257,14 @@ declare module '$env/dynamic/private' {
 		USERDOMAIN_ROAMINGPROFILE: string;
 		USERNAME: string;
 		USERPROFILE: string;
-		VBOX_HWVIRTEX_IGNORE_SVM_IN_USE: string;
-		VBOX_MSI_INSTALL_PATH: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		VSCODE_INJECTION: string;
 		windir: string;
+		ZES_ENABLE_SYSMAN: string;
+		__COMPAT_LAYER: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

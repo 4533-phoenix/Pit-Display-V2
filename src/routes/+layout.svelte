@@ -3,4 +3,6 @@
     export const prerender = true;
 </script>
 
+<title>FRC Pit Display</title>
+
 <slot />
