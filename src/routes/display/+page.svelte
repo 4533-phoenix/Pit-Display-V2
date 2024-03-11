@@ -8,30 +8,34 @@
     let teamNumber = "";
     let teamData: TbaApi.Team;
     let teamMedia: TbaApi.Media[];
+    let teamAvatar: TbaApi.Media | null | undefined;
     onMount(async () => {
         let queryTeamNumber = new URLSearchParams(window.location.search).get(
             "team",
         );
         try {
             teamNumber = queryTeamNumber || "";
-            teamData = await TbaApi.TeamService.getTeam(
-                "frc" + queryTeamNumber,
-            );
-            teamMedia = await TbaApi.TeamService.getTeamMediaByYear(
-                "frc" + queryTeamNumber,
+            teamData = await TbaApi.TeamService.getTeam("frc" + teamNumber);
+
+            let media = await TbaApi.TeamService.getTeamMediaByYear(
+                "frc" + teamNumber,
                 2024,
             );
-            console.log(teamMedia);
+            teamAvatar = media.find((media) => media.type === "avatar");
+            teamMedia = media.filter((media) => media.type !== "avatar");
         } catch (error) {
             window.location.href = "/";
         }
 
         setInterval(async () => {
             teamData = await TbaApi.TeamService.getTeam("frc" + teamNumber);
-            teamMedia = await TbaApi.TeamService.getTeamMediaByYear(
+
+            let media = await TbaApi.TeamService.getTeamMediaByYear(
                 "frc" + teamNumber,
                 2024,
             );
+            teamAvatar = media.find((media) => media.type === "avatar");
+            teamMedia = media.filter((media) => media.type !== "avatar");
         }, 10000);
 
         setInterval(() => {
@@ -44,6 +48,15 @@
     });
 </script>
 
+<title>{teamNumber} ({teamData ? teamData.nickname : "..."}) Display</title>
+<!-- get the avatar -->
+{#if teamMedia}
+    {#each teamMedia as media}
+        {#if media.type === "avatar"}
+            <img src={media.direct_url} alt="avatar" />
+        {/if}
+    {/each}
+{/if}
 <div
     class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
 >
@@ -58,24 +71,13 @@
                 {teamData ? teamData.team_number : "Loading..."}
             </p>
         </div>
-        <!-- <div>
-            {#if teamMedia}
-                {#each teamMedia as media}
-                    {#if media.type !== "avatar"}
-                        <img src={media.direct_url} alt={media.type} />
-                    {/if}
-                {/each}
-            {/if}
-        </div> -->
         <Carousel.Root bind:api={carouselApi}>
             <Carousel.Content>
                 {#if teamMedia}
                     {#each teamMedia as media}
-                        {#if media.type !== "avatar"}
-                            <Carousel.Item>
-                                <img src={media.direct_url} alt={media.type} />
-                            </Carousel.Item>
-                        {/if}
+                        <Carousel.Item>
+                            <img src={media.direct_url} alt={media.type} />
+                        </Carousel.Item>
                     {/each}
                 {/if}
             </Carousel.Content>

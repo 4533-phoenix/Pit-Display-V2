@@ -4,21 +4,28 @@
     import TbaApi from "$lib/tba";
 
     async function validateTeamNumber() {
-        buttonDisabled = true;
+        inputDisabled = true;
         
         try {
             await TbaApi.TeamService.getTeam("frc" + teamNumber);
-            window.location.href = `/display?team=${teamNumber}`;
+            window.location.href = `display?team=${teamNumber}`;
         } catch (error) {
             alert("Invalid team number");
-            buttonDisabled = false;
+            inputDisabled = false;
+        }
+    }
+
+    function validateKeyup(event: KeyboardEvent) {
+        if (event.key === "Enter") {
+            validateTeamNumber();
         }
     }
 
     let teamNumber = "";
-    let buttonDisabled = false;
+    let inputDisabled = false;
 </script>
 
+<title>FRC Pit Display</title>
 <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8">
         <div>
@@ -31,7 +38,7 @@
                 Enter your team number below to get started.
             </p>
         </div>
-        <Input placeholder="Team Number" bind:value={teamNumber} type="number" />
-        <Button class="w-full" on:click={validateTeamNumber} disabled={buttonDisabled}>Go</Button>
+        <Input placeholder="Team Number" bind:value={teamNumber} disabled={inputDisabled} on:keyup={validateKeyup} type="number" />
+        <Button class="w-full" on:click={validateTeamNumber} disabled={inputDisabled}>Go</Button>
     </div>
 </div>
