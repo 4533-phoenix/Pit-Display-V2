@@ -1,4 +1,9 @@
 {
-	"/": [],
-	"/display": []
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/display": [
+		"src/routes/+layout.ts"
+	]
 }
