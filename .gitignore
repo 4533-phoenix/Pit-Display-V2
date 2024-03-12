@@ -128,4 +128,5 @@ dist
 
 # svelte
 .svelte-kit/generated/
+.svelte-kit/output/
 build/
