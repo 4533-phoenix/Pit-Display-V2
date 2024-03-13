@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type CarouselAPI } from "$lib/components/ui/carousel/context";
+  import Autoplay from "embla-carousel-autoplay";
   import * as Carousel from "$lib/components/ui/carousel/index";
   import { Skeleton } from "$lib/components/ui/skeleton/index.js";
   import { onMount } from "svelte";
@@ -20,7 +20,7 @@
 
     let media = await TbaApi.TeamService.getTeamMediaByYear(
       "frc" + teamNumber,
-      tbaStatus.current_season
+      tbaStatus.current_season,
     );
     teamAvatar = media.find((media) => media.type === "avatar");
     teamMedia = media.filter((media) => media.type !== "avatar");
@@ -41,16 +41,6 @@
     }
 
     setInterval(updateData, 1000 * 60 * 10);
-
-    setInterval(() => {
-      if (carouselApi) {
-        if (carouselApi.canScrollNext()) {
-          carouselApi.scrollNext();
-        } else {
-          carouselApi.scrollTo(0);
-        }
-      }
-    }, 5000);
   });
 </script>
 
@@ -81,7 +71,15 @@
       {/if}
     </div>
     {#if teamMedia}
-      <Carousel.Root bind:api={carouselApi} class="w-full h-96 overflow-hidden">
+      <Carousel.Root
+        plugins={[
+          Autoplay({
+            delay: 5000,
+            stopOnInteraction: false 
+          }),
+        ]}
+        class="w-full h-96 overflow-hidden"
+      >
         <Carousel.Content>
           {#if teamMedia}
             {#each teamMedia as media}
