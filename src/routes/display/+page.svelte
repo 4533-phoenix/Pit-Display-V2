@@ -6,7 +6,6 @@
   import { validateTeamNumber } from "$lib/frc";
   import TbaApi from "$lib/tba";
 
-  let carouselApi: CarouselAPI;
   let teamNumber = "";
 
   let tbaStatus: TbaApi.API_Status;
