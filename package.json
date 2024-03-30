@@ -26,9 +26,8 @@
   },
   "type": "module",
   "dependencies": {
-    "bits-ui": "^0.19.6",
+    "bits-ui": "^0.19.7",
     "clsx": "^2.1.0",
-    "embla-carousel-autoplay": "^8.0.0",
     "embla-carousel-svelte": "^8.0.0",
     "lucide-svelte": "^0.354.0",
     "mode-watcher": "^0.2.2",
